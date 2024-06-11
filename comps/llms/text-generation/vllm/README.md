@@ -23,14 +23,20 @@ export HF_TOKEN=<token>
 And then you can make requests like below to check the service status:
 
 ```bash
-curl http://127.0.0.1:8080/v1/completions \
+curl http://10.45.77.191:8008/v1/completions \
   -H "Content-Type: application/json" \
   -d '{
-  "model": <model_name>,
+  "model":"Intel/neural-chat-7b-v3-3",
   "prompt": "What is Deep Learning?",
   "max_tokens": 32,
   "temperature": 0
   }'
+
+curl http://10.45.77.191:9000/v1/chat/completions \
+    -X POST \
+    -d '{"query":"What is Deep Learning?","max_new_tokens":17,"top_k":10,"top_p":0.95,"typical_p":0.95,"temperature":0.01,"repetition_penalty":1.03,"streaming":true}' \
+    -H 'Content-Type: application/json'
+
 ```
 
 #### Customize vLLM CPU Service

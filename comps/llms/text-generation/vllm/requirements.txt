@@ -8,4 +8,3 @@ opentelemetry-exporter-otlp
 opentelemetry-sdk
 shortuuid
 transformers
-vllm
